@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Платформа оценки компетенций аналитика</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="topbar" aria-label="Сведения об оценке">
+        <div>
+          <p class="eyebrow">Оценка компетенций</p>
+          <h1>Платформа оценки компетенций аналитика</h1>
+        </div>
+        <div class="progress-card" aria-live="polite">
+          <span class="progress-label">Заполнено</span>
+          <strong id="progressValue">0%</strong>
+          <div class="progress-track" aria-hidden="true">
+            <span id="progressBar"></span>
+          </div>
+        </div>
+      </section>
+
+      <form class="assessment-form" id="assessmentForm">
+        <section class="meta-grid" aria-label="Общая информация">
+          <label>
+            Оцениваемый сотрудник
+            <input type="text" name="employee" placeholder="ФИО аналитика">
+          </label>
+          <label>
+            Роль / проект
+            <input type="text" name="project" placeholder="Например, системный аналитик, CRM">
+          </label>
+          <label>
+            Оценивающий
+            <input type="text" name="reviewer" placeholder="Ваше имя">
+          </label>
+          <label>
+            Период оценки
+            <input type="text" name="period" placeholder="Например, Q2 2026">
+          </label>
+        </section>
+
+        <section class="question-list" aria-label="Вопросы оценки">
+          <article class="question-item">
+            <div class="question-number">1</div>
+            <label>
+              Какие профессиональные качества сотрудника выделяются наиболее ярко?
+              <textarea name="q1" rows="4" placeholder="Опишите сильные стороны и приведите примеры"></textarea>
+            </label>
+          </article>
+
+          <article class="question-item">
+            <div class="question-number">2</div>
+            <label>
+              Какие зоны роста заметны в повседневной работе? Имеются ли случаи, подтверждающие наличие сложностей?
+              <textarea name="q2" rows="4" placeholder="Укажите наблюдаемые зоны развития и конкретные ситуации"></textarea>
+            </label>
+          </article>
+
+          <article class="question-item">
+            <div class="question-number">3</div>
+            <label>
+              Насколько комфортно вам лично работать вместе с этим сотрудником? Почему? Прислушивается ли сотрудник к мнению коллег?
+              <textarea name="q3" rows="4" placeholder="Оцените взаимодействие, открытость к обратной связи и командность"></textarea>
+            </label>
+          </article>
+
+          <article class="question-item">
+            <div class="question-number">4</div>
+            <label>
+              Как сотрудник справляется с критичными или негативными ситуациями? Реагирует спокойно, ищет компромиссы или проявляет раздражение?
+              <textarea name="q4" rows="4" placeholder="Опишите поведение в напряженных ситуациях"></textarea>
+            </label>
+          </article>
+
+          <article class="question-item compact">
+            <div class="question-number">5</div>
+            <label>
+              Качественно, полно ли сотрудник готовит документацию?
+              <select name="q5_rating">
+                <option value="">Выберите оценку</option>
+                <option>Высокое качество</option>
+                <option>В целом качественно</option>
+                <option>Требуется доработка</option>
+                <option>Есть существенные пробелы</option>
+              </select>
+              <textarea name="q5" rows="3" placeholder="Комментарий по полноте, структуре и понятности документации"></textarea>
+            </label>
+          </article>
+
+          <article class="question-item compact">
+            <div class="question-number">6</div>
+            <label>
+              Как часто приходится обращаться за уточнениями по готовой документации?
+              <select name="q6_rating">
+                <option value="">Выберите частоту</option>
+                <option>Редко</option>
+                <option>Иногда</option>
+                <option>Часто</option>
+                <option>Почти всегда</option>
+              </select>
+              <textarea name="q6" rows="3" placeholder="Что обычно требует уточнений"></textarea>
+            </label>
+          </article>
+
+          <article class="question-item">
+            <div class="question-number">7</div>
+            <label>
+              Быстро ли сотрудник реагирует на возникающие рабочие вопросы и запросы? Своевременно ли сообщает о возникающих проблемах и рисках?
+              <textarea name="q7" rows="4" placeholder="Опишите скорость реакции, прозрачность коммуникации и работу с рисками"></textarea>
+            </label>
+          </article>
+
+          <article class="question-item compact">
+            <div class="question-number">8</div>
+            <label>
+              Решает ли возникающие вопросы, или ожидает решения от коллег?
+              <select name="q8_rating">
+                <option value="">Выберите вариант</option>
+                <option>Самостоятельно предлагает решения</option>
+                <option>Решает с точечной поддержкой</option>
+                <option>Часто ожидает решения коллег</option>
+                <option>Редко берет вопрос в работу самостоятельно</option>
+              </select>
+              <textarea name="q8" rows="3" placeholder="Приведите пример самостоятельности или зависимости от команды"></textarea>
+            </label>
+          </article>
+
+          <article class="question-item compact">
+            <div class="question-number">9</div>
+            <label>
+              Соответствуют ли технические решения сотрудника заявленным целям и условиям проекта?
+              <select name="q9_rating">
+                <option value="">Выберите оценку</option>
+                <option>Полностью соответствуют</option>
+                <option>В основном соответствуют</option>
+                <option>Иногда требуют корректировки</option>
+                <option>Часто не попадают в цели проекта</option>
+              </select>
+              <textarea name="q9" rows="3" placeholder="Комментарий по качеству решений и пониманию ограничений проекта"></textarea>
+            </label>
+          </article>
+
+          <article class="question-item compact">
+            <div class="question-number">10</div>
+            <label>
+              На сколько точно сотрудник оценивает задачи?
+              <div class="range-row">
+                <input type="range" name="q10_rating" min="1" max="10" value="5" id="accuracyRange">
+                <output for="accuracyRange" id="accuracyValue">5/10</output>
+              </div>
+              <textarea name="q10" rows="3" placeholder="Опишите точность оценок, причины отклонений и примеры"></textarea>
+            </label>
+          </article>
+        </section>
+
+        <section class="actions" aria-label="Действия">
+          <button type="button" class="secondary-button" id="clearButton">Очистить</button>
+          <button type="submit" class="primary-button">Сохранить оценку</button>
+        </section>
+      </form>
+
+      <section class="result-panel" id="resultPanel" aria-label="Сводный результат опроса" hidden>
+        <div class="result-header">
+          <div>
+            <p class="eyebrow">Сводный результат</p>
+            <h2>Итоги оценки и рекомендации развития</h2>
+          </div>
+          <div class="header-actions">
+            <button type="button" class="secondary-button" id="editButton">Вернуться к оценке</button>
+            <button type="button" class="primary-button" id="createIprButton">Сформировать ИПР</button>
+          </div>
+        </div>
+
+        <form class="summary-form">
+          <label>
+            Текущий грейд аналитика
+            <select id="gradeSelect" name="current_grade">
+              <option>Junior</option>
+              <option selected>Middle</option>
+              <option>Senior</option>
+            </select>
+          </label>
+
+          <section class="summary-section">
+            <h3>Рекомендованная литература</h3>
+            <div class="resource-list" id="resourceList"></div>
+          </section>
+
+          <section class="summary-section">
+            <h3>Рекомендации по росту и развитию</h3>
+            <div class="competency-list" id="competencyList"></div>
+          </section>
+        </form>
+      </section>
+
+      <section class="ipr-panel" id="iprPanel" aria-label="Индивидуальный план развития" hidden>
+        <div class="result-header">
+          <div>
+            <p class="eyebrow">Индивидуальный план развития</p>
+            <h2>Заполненный ИПР по сотруднику</h2>
+          </div>
+          <button type="button" class="primary-button" id="downloadWordButton">Выгрузить в Word</button>
+        </div>
+
+        <form class="ipr-form" id="iprForm">
+          <section class="meta-grid">
+            <label>
+              Имя фамилия
+              <input type="text" name="iprEmployee">
+            </label>
+            <label>
+              Месяц и год
+              <input type="text" name="iprPeriod">
+            </label>
+            <label>
+              Должность
+              <input type="text" name="iprPosition" value="Аналитик">
+            </label>
+            <label>
+              Грейд
+              <input type="text" name="iprGrade">
+            </label>
+            <label>
+              Департамент
+              <input type="text" name="iprDepartment" value="CRM и BPM">
+            </label>
+            <label>
+              Направление
+              <input type="text" name="iprDirection" value="BPMSoft">
+            </label>
+            <label class="wide-field">
+              Непосредственный руководитель
+              <input type="text" name="iprManager" value="Валерия Ахмадиева - Руководитель группы аналитики">
+            </label>
+          </section>
+
+          <section class="summary-section">
+            <h3>Описание и обратная связь</h3>
+            <label>
+              Мои сильные стороны
+              <textarea name="iprStrengths" rows="5"></textarea>
+            </label>
+            <label>
+              Сильные стороны - обратная связь от руководителя
+              <textarea name="iprManagerStrengths" rows="5"></textarea>
+            </label>
+            <label>
+              Мои области роста
+              <textarea name="iprGrowthAreas" rows="5"></textarea>
+            </label>
+            <label>
+              Области роста - обратная связь от руководителя
+              <textarea name="iprManagerGrowth" rows="5"></textarea>
+            </label>
+          </section>
+
+          <section class="summary-section">
+            <h3>Реперные точки</h3>
+            <div class="ipr-table" id="milestonesTable"></div>
+          </section>
+
+          <section class="summary-section">
+            <h3>Шаги по достижению заявленных точек роста</h3>
+            <div class="ipr-table" id="developmentTable"></div>
+          </section>
+        </form>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Оценка сохранена в прототипе</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
